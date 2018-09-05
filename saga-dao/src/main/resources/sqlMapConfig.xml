@@ -4,6 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.wb.systerm.entity.UserInfo" alias="User" />
+        <typeAlias type="com.wb.systerm.dao.UserDao" alias="UserInfo" />
     </typeAliases>
 </configuration>

@@ -1,6 +1,5 @@
 package com.wb.system.dao;
 import com.wb.system.model.dao.UserInfo;
-import com.wb.systerm.dao.UserDao;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -60,10 +59,10 @@ public class TestUserDao {
         SqlSession sqlSession = null;
         try {
             sqlSession = sqlSessionFactory.openSession();
-            int res = sqlSession.insert("com.wb.systerm.dao.UserDao.insertUser", new UserInfo("5", "118", "扎克伯格", 1, "美国", new Date(), new Date()));
+            int res = sqlSession.insert("UserDao.insertUser", new UserInfo("5", "118", "扎克伯格", 1, "美国", new Date(), new Date()));
             sqlSession.commit();
             System.out.println(res);
-            System.out.println(sqlSession.selectOne("com.wb.systerm.dao.UserDao.selectUser", "5"));
+            System.out.println(sqlSession.selectOne("UserDao.selectUser", "5"));
         } finally {
             if (sqlSession != null) {
                 sqlSession.close();

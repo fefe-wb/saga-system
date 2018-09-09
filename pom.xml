@@ -12,12 +12,14 @@
         <module>saga-web</module>
         <module>saga-dao</module>
         <module>saga-model</module>
+        <module>saga-util</module>
         <module>saga-service</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.3.5.RELEASE</spring.version>
+        <aspectj.version>1.6.11</aspectj.version>
     </properties>
 
     <dependencyManagement>
@@ -45,6 +47,19 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aop</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+
+            <!--使用AspectJ方式注解需要相应的包-->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <!--使用AspectJ方式注解需要相应的包-->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
             </dependency>
 
             <dependency>

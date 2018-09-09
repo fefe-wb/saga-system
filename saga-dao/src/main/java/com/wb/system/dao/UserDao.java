@@ -1,4 +1,4 @@
-package com.wb.systerm.dao;
+package com.wb.system.dao;
 
 
 import com.wb.system.model.dao.UserInfo;

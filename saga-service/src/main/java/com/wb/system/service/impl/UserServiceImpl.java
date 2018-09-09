@@ -26,4 +26,8 @@ public class UserServiceImpl implements IUserService {
         int res = userDao.insertUser(userInfo);
         return res;
     }
+
+    public void sayHello() {
+        System.out.println("hello...");
+    }
 }

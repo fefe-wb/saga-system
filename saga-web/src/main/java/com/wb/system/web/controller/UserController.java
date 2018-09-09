@@ -4,6 +4,7 @@ package com.wb.system.web.controller;
 import com.wb.system.model.dao.UserInfo;
 import com.wb.system.service.IUserService;
 import com.wb.system.service.impl.UserServiceImpl;
+import com.wb.system.web.proxy.BusinessCGLIBProxy;
 import com.wb.system.web.proxy.BusinessProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,6 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-
     @RequestMapping(value = "/regist", method = RequestMethod.POST)
     public String regist(@RequestParam String userId, @RequestParam String userName,
                          @RequestParam String mobileNo, @RequestParam String address, @RequestParam int sex) {
@@ -42,9 +42,16 @@ public class UserController {
     @RequestMapping(value = "/selectFromProxy", method = RequestMethod.GET)
     public String selectFromProxy(@RequestParam String userId) {
         IUserService proxyInstance = (IUserService) Proxy.newProxyInstance(
-                UserServiceImpl.class.getClassLoader(), UserServiceImpl.class.getInterfaces(), new BusinessProxy(userService));
+                UserController.class.getClassLoader(), UserServiceImpl.class.getInterfaces(), new BusinessProxy(userService));
         UserInfo userInfo = proxyInstance.getUserInfo(userId);
         System.out.println(userInfo.toString());
         return userInfo.toString();
+    }
+
+    @RequestMapping(value = "/selectFromCGLIBProxy", method = RequestMethod.GET)
+    public String selectFromCGLIBProxy(@RequestParam String userId) {
+        UserServiceImpl proxyInstance = BusinessCGLIBProxy.create();
+        proxyInstance.sayHello();
+        return "suc";
     }
 }

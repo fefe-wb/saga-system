@@ -38,7 +38,7 @@ public class TestUserDao {
         try {
             sqlSession = sqlSessionFactory.openSession();
             UserDao userDao = sqlSession.getMapper(UserDao.class);
-            userDao.insertUser(new UserInfo("2", "118", "马化腾", 1, "深圳", new Date(), new Date()));
+            userDao.insertUser(new UserInfo("2", "118", "马化腾", 10,1, "深圳", new Date(), new Date()));
             sqlSession.commit();
             System.out.println(userDao.selectUser("1"));
         } finally {
@@ -59,7 +59,7 @@ public class TestUserDao {
         SqlSession sqlSession = null;
         try {
             sqlSession = sqlSessionFactory.openSession();
-            int res = sqlSession.insert("UserDao.insertUser", new UserInfo("5", "118", "扎克伯格", 1, "美国", new Date(), new Date()));
+            int res = sqlSession.insert("UserDao.insertUser", new UserInfo("5", "118", "扎克伯格", 10, 1, "美国", new Date(), new Date()));
             sqlSession.commit();
             System.out.println(res);
             System.out.println(sqlSession.selectOne("UserDao.selectUser", "5"));
@@ -81,7 +81,7 @@ public class TestUserDao {
             sqlSessionFactory.getConfiguration().addMapper(UserMapper.class);
             sqlSession = sqlSessionFactory.openSession();
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            int res = userMapper.insertUser(new UserInfo("6", "116", "董明珠", 0, "珠海", new Date(), new Date()));
+            int res = userMapper.insertUser(new UserInfo("6", "116", "董明珠", 10,0, "珠海", new Date(), new Date()));
             sqlSession.commit();
             System.out.println(res);
             UserInfo userInfo = userMapper.selectUser("6");

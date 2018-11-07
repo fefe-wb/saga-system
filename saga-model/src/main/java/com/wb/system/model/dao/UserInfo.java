@@ -11,6 +11,7 @@ public class UserInfo {
     private String mobileNo;
     private String userName;
     private int sex;
+    private int age;
     private String address;
     private Date gmtCreate;
     private Date gmtModified;
@@ -18,12 +19,13 @@ public class UserInfo {
     public UserInfo() {
     }
 
-    public UserInfo(String userId, String mobileNo, String userName,
+    public UserInfo(String userId, String mobileNo, String userName, int age,
                     int sex, String address, Date gmtCreate, Date gmtModified) {
         this.userId = userId;
         this.mobileNo = mobileNo;
         this.userName = userName;
         this.sex = sex;
+        this.age = age;
         this.address = address;
         this.gmtCreate = gmtCreate;
         this.gmtModified = gmtModified;
@@ -93,6 +95,14 @@ public class UserInfo {
         this.gmtModified = gmtModified;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -101,6 +111,7 @@ public class UserInfo {
                 ", mobileNo='" + mobileNo + '\'' +
                 ", userName='" + userName + '\'' +
                 ", sex=" + sex +
+                ", age=" + age +
                 ", address='" + address + '\'' +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +

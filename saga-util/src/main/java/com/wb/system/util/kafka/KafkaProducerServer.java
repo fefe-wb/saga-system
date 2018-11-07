@@ -33,7 +33,7 @@ public class KafkaProducerServer{
      */
     public Map<String,Object> sndMesForTemplate(String topic, Object value){
         String valueString = JSON.toJSONString(value);
-        ListenableFuture<SendResult<String, String>> result = kafkaTemplate.send(topic, valueString);
+            ListenableFuture<SendResult<String, String>> result = kafkaTemplate.send(topic, valueString);
         Map<String,Object> res = checkProRecord(result);
         return res;
     }

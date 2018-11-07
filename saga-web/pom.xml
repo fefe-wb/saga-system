@@ -68,6 +68,11 @@
         </dependency>
         <dependency>
             <groupId>com.wb.private.system</groupId>
+            <artifactId>saga-delegate</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wb.private.system</groupId>
             <artifactId>saga-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -83,6 +88,12 @@
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
         </dependency>
     </dependencies>
 

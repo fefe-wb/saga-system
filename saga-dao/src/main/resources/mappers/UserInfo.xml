@@ -9,6 +9,7 @@
         <result property="mobileNo" column="mobile_no" jdbcType="VARCHAR"/>
         <result property="userName" column="user_name" jdbcType="VARCHAR"/>
         <result property="sex" column="sex" jdbcType="INTEGER"/>
+        <result property="age" column="age" jdbcType="INTEGER"/>
         <result property="address" column="address" jdbcType="VARCHAR"/>
         <result property="gmtCreate" column="gmt_create" jdbcType="DATE"/>
         <result property="gmtModified" column="gmt_modified" jdbcType="DATE"/>
@@ -17,10 +18,13 @@
     <select id="selectUser" parameterType="string" resultMap="userInfoMap">
       select * from user_base_info where user_id = #{userId};
     </select>
+    <select id="selectAllUser" resultMap="userInfoMap">
+      select * from user_base_info;
+    </select>
     <insert id="insertUser" parameterType="UserInfo">
         insert into user_base_info
-        (user_id,mobile_no,user_name,sex,address,gmt_create,gmt_modified)
+        (user_id,mobile_no,user_name,sex,age,address,gmt_create,gmt_modified)
         values
-        (#{userId},#{mobileNo},#{userName},#{sex},#{address},#{gmtCreate},#{gmtModified});
+        (#{userId},#{mobileNo},#{userName},#{sex},#{age},#{address},#{gmtCreate},#{gmtModified});
     </insert>
 </mapper>

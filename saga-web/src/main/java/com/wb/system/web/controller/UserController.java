@@ -8,20 +8,16 @@ import com.wb.system.service.impl.UserServiceImpl;
 import com.wb.system.util.kafka.KafkaProducerServer;
 import com.wb.system.web.proxy.BusinessProxy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import rx.internal.util.LinkedArrayList;
 
 import java.lang.reflect.Proxy;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by cungubenxiaokang on 2018/8/24.
@@ -101,69 +97,5 @@ public class UserController {
             }
         }
         return "success";
-    }
-
-    public static void main(String[] args) throws Exception {
-//        HashMap<String, Integer> map = new HashMap<String, Integer>();
-//        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-//            entry.getKey();
-//        }
-//
-//        Lock lock = new ReentrantLock();
-//        lock.lock();
-
-
-//        List<String> list = new ArrayList<String>();
-//        list.add("wubing");
-//        list.get(1);
-//        list.remove(1);
-//        list.remove("wubing");
-//
-//        ThreadLocal threadLocal = new ThreadLocal();
-//        threadLocal.set(123);
-//
-//        HashMap<String, Integer> map = new HashMap<String, Integer>();
-//        for (int i=0;i<10;i++) {
-//            map.put("wubing", i);
-//        }
-//        map.get("1");
-//
-//        AtomicInteger atomicInteger = new AtomicInteger(1);
-//        atomicInteger.incrementAndGet();
-//
-//        LinkedArrayList linkedArrayList = new LinkedArrayList(1);
-//        linkedArrayList.add("wubing");
-//        LinkedList<String> linkedList = new LinkedList<String>();
-//        linkedList.add("wubing");
-//        linkedList.get(1);
-//
-//        Set<String> set = new HashSet<String>();
-//        set.add("wubing");
-//        LinkedHashSet<String> set1 = new LinkedHashSet<String>();
-//        set1.add("wubing");
-//        set1.iterator();
-
-//        System.out.println(Float.MAX_VALUE);
-//        System.out.println(Float.MIN_VALUE);
-//
-//        float x = 4;
-//        System.out.println(x);
-//
-//        byte a = 127;
-//        char b = 'c';
-//        System.out.println(a);
-//        System.out.println(b);
-
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-        TestBean120 testBean120 = (TestBean120) context.getBean("testBean120");
-        System.out.println(testBean120.getName());
-
-        ExecutorService executorService = Executors.newScheduledThreadPool(1);
-        Future future = executorService.submit(new Callable<String>() {
-            public String call() throws Exception {
-                return null;
-            }
-        });
-        future.get();
     }
 }
